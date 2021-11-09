@@ -91,7 +91,7 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                     }
-                    if (checkPhonePermissionsGranted(this))
+                    if (!checkPhonePermissionsGranted(this))
                         phonePermissions()
                 }
 

@@ -1,5 +1,5 @@
 package com.android.internal.telephony
 
-interface TelephonyInterface {
+interface ITelephony {
     fun endCall(): Boolean
 }

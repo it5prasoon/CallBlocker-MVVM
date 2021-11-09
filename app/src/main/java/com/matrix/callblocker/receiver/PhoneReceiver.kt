@@ -12,7 +12,7 @@ import android.telecom.TelecomManager
 import android.telephony.TelephonyManager
 import android.util.Log
 import androidx.core.content.ContextCompat
-import com.android.internal.telephony.TelephonyInterface
+import com.android.internal.telephony.ITelephony
 import com.matrix.callblocker.domain.repository.ContactRepository
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.DelicateCoroutinesApi
@@ -69,9 +69,9 @@ class PhoneReceiver : BroadcastReceiver() {
             } else {
                 val telephony = context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
                 val c = Class.forName(telephony.javaClass.name)
-                val m: Method = c.getDeclaredMethod("getTelephonyInterface")
+                val m: Method = c.getDeclaredMethod("getITelephony")
                 m.isAccessible = true
-                val telephonyService = m.invoke(telephony) as TelephonyInterface
+                val telephonyService = m.invoke(telephony) as ITelephony
                 telephonyService.endCall()
                 true
             }
