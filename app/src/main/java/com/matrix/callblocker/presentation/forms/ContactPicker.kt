@@ -11,7 +11,7 @@ import androidx.activity.result.contract.ActivityResultContract
 
 data class PickContactResult(val name: String, val phoneNumber: String)
 
-class PickContact(
+class ContactPicker(
     private val contentResolver: ContentResolver
 ) : ActivityResultContract<Unit, PickContactResult?>() {
 

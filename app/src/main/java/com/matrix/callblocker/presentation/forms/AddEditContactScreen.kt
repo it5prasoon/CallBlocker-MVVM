@@ -37,7 +37,7 @@ fun AddEditContactScreen(
     val scaffoldState = rememberScaffoldState()
 
     val pickContact = rememberLauncherForActivityResult(
-        PickContact(LocalContext.current.contentResolver)
+        ContactPicker(LocalContext.current.contentResolver)
     ) { contactResult ->
         val name = contactResult?.name
         val phoneNumber = contactResult?.phoneNumber
