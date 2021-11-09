@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal" created-in="IU-212.4746.92">
+    <data-source name="Contacts_db" uuid="dbdde14d-e30f-4ccd-aa3c-df54b348b476">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" exact-version="0" />
+      <auth-provider>no-auth</auth-provider>
+      <schema-mapping />
+    </data-source>
+  </component>
+</project>

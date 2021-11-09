@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Call Blocker</string>
+    <string name="channel_name">blocked_calls</string>
+    <string name="notification_title">Incoming blocked call from %s</string>
+</resources>
