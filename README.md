@@ -16,7 +16,7 @@ The app should have a minimal UI. (Show us your creativity)
 Use Dependency Injection
 
 
-<h2>Modules and Libraries used:<h2>
+<h2>Modules and Libraries used:</h2>
 
 <ul>
 	<li>Dagger Hilt</li>
@@ -24,5 +24,4 @@ Use Dependency Injection
 	<li>Room database</li>
 	<li>ViewModel and Lifecycle</li>
 	<li>Coroutines</li>
-	
 </ul>
