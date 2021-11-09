@@ -34,19 +34,16 @@ fun AddEditContactScreen(
     val titleState = viewModel.contactTitle.value
     val contentState = viewModel.contactContent.value
 
-    var name: String? = null
-    var phoneNumber: String? = null
-
     val scaffoldState = rememberScaffoldState()
 
     val pickContact = rememberLauncherForActivityResult(
         PickContact(LocalContext.current.contentResolver)
     ) { contactResult ->
-        name = contactResult.name
-        phoneNumber = contactResult.phoneNumber
+        val name = contactResult?.name
+        val phoneNumber = contactResult?.phoneNumber
         Log.d(TAG, "AddEditContactScreen: Reached $name $phoneNumber")
         if (name != null && phoneNumber != null)
-            viewModel.onEvent(AddEditContactEvent.ChooseContact(name = name!!, phoneNumber = phoneNumber!!))
+            viewModel.onEvent(AddEditContactEvent.ChooseContact(name = name, phoneNumber = phoneNumber))
     }
 
     LaunchedEffect(key1 = true) {

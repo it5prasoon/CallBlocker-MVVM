@@ -1,5 +1,6 @@
 package com.matrix.callblocker.presentation.forms
 
+import android.annotation.SuppressLint
 import android.app.Activity.RESULT_OK
 import android.content.ContentResolver
 import android.content.Context
@@ -12,12 +13,13 @@ data class PickContactResult(val name: String, val phoneNumber: String)
 
 class PickContact(
     private val contentResolver: ContentResolver
-) : ActivityResultContract<Unit, PickContactResult>() {
+) : ActivityResultContract<Unit, PickContactResult?>() {
 
     override fun createIntent(context: Context, input: Unit?): Intent {
         return Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Phone.CONTENT_URI)
     }
 
+    @SuppressLint("Recycle")
     override fun parseResult(resultCode: Int, result: Intent?): PickContactResult? {
         if (resultCode == RESULT_OK && result != null) {
             try {
