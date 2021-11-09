@@ -1,10 +1,8 @@
 package com.matrix.callblocker.presentation.forms
 
-import android.content.ContentValues
 import android.content.ContentValues.TAG
 import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.result.launch
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -13,27 +11,19 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Save
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.matrix.callblocker.domain.model.Contact
-import com.matrix.callblocker.domain.use_case.ContactUseCases
-import com.matrix.callblocker.presentation.forms.components.TransparentHintTextField
-import com.matrix.callblocker.utils.Utils
+import com.matrix.callblocker.presentation.forms.components.CustomTextField
 import kotlinx.coroutines.DelicateCoroutinesApi
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @OptIn(DelicateCoroutinesApi::class)
 @Composable
@@ -100,7 +90,7 @@ fun AddEditContactScreen(
                 ), color = Color.Black, textAlign = TextAlign.Center, fontSize = 30.sp
             )
             Spacer(modifier = Modifier.height(30.dp))
-            TransparentHintTextField(
+            CustomTextField(
                 text = titleState.text,
                 hint = titleState.hint,
                 onValueChange = {
@@ -113,7 +103,7 @@ fun AddEditContactScreen(
                 singleLine = true,
             )
             Spacer(modifier = Modifier.height(16.dp))
-            TransparentHintTextField(
+            CustomTextField(
                 text = contentState.text,
                 hint = contentState.hint,
                 onValueChange = {

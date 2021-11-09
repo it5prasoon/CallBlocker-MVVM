@@ -119,7 +119,7 @@ class AddEditContactViewModel @Inject constructor(
                         contactUseCases.addContact(
                             Contact(
                                 name = contactTitle.value.text,
-                                phoneNumber = contactContent.value.text,
+                                phoneNumber = Utils().convertNumber(contactContent.value.text),
                                 id = currentContactId
                             )
                         )
