@@ -17,7 +17,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ContactsViewModel @Inject constructor(
-    private val ContactUseCases: ContactUseCases
+    private val contactUseCases: ContactUseCases
 ) : ViewModel() {
 
     private val _state = mutableStateOf(ContactsState())
@@ -43,13 +43,13 @@ class ContactsViewModel @Inject constructor(
             }
             is ContactsEvent.DeleteContact -> {
                 viewModelScope.launch {
-                    ContactUseCases.deleteContact(event.Contact)
+                    contactUseCases.deleteContact(event.Contact)
                     recentlyDeletedContact = event.Contact
                 }
             }
             is ContactsEvent.RestoreContact -> {
                 viewModelScope.launch {
-                    ContactUseCases.addContact(recentlyDeletedContact ?: return@launch)
+                    contactUseCases.addContact(recentlyDeletedContact ?: return@launch)
                     recentlyDeletedContact = null
                 }
             }
@@ -63,7 +63,7 @@ class ContactsViewModel @Inject constructor(
 
     private fun getContacts(contactOrder: ContactOrder) {
         getContactsJob?.cancel()
-        getContactsJob = ContactUseCases.getContacts(contactOrder)
+        getContactsJob = contactUseCases.getContacts(contactOrder)
             .onEach { Contacts ->
                 _state.value = state.value.copy(
                     contacts = Contacts,
